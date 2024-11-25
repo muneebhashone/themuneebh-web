@@ -33,7 +33,7 @@ export default async function Home() {
         <h2 className="heading">I&apos;ve built some stuff for free</h2>
         <div className="grid sm:grid-cols-2 gap-6">
           {repos.map((repo) => (
-            <a 
+            <Link 
               key={repo.id}
               href={repo.html_url} 
               target="_blank"
@@ -58,7 +58,7 @@ export default async function Home() {
                   <Star className="w-4 h-4" /> {repo.stargazers_count}
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -123,12 +123,12 @@ export default async function Home() {
       <section className="container section">
         <div className="flex justify-between items-center mb-12">
           <h2 className="heading mb-0 p-2 px-0 leading-tight">Not ready to collaborate? <div>Read my thoughts</div></h2>
-          <a
+          <Link
             href="/blog"
             className="mono text-sm text-accent hover:opacity-80 transition-opacity"
           >
             View all →
-          </a>
+          </Link>
         </div>
         <div className="space-y-6">
           {posts.slice(0, 3).map((post) => (
@@ -157,24 +157,24 @@ export default async function Home() {
       {/* Contact Section */}
       <footer className="container py-24">
         <div className="flex flex-wrap gap-8 justify-center items-center">
-          <a
+          <Link
             href="https://github.com/muneebhashone"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
             github/muneebhashone
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://linkedin.com/in/muneebhussainmodi"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
             linkedin/in/muneebhussainmodi
-          </a>
-          <a
+          </Link>
+          <Link
             href="mailto:mhussain@themuneebh.com"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
             mhussain@themuneebh.com
-          </a>
+          </Link>
         </div>
       </footer>
     </div>
