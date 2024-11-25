@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getDevToArticles } from "./utils/blog";
 
 export default async function Home() {
@@ -16,8 +17,7 @@ export default async function Home() {
           <span className="gradient-text">systems</span>
         </h1>
         <p className="text-xl sm:text-2xl text-muted max-w-2xl leading-relaxed">
-          5+ years of expertise in building high-performance distributed systems
-          and scalable backend solutions.
+          5+ years of flexing my skills in crafting supercharged distributed systems and backend solutions that can handle the heat!
         </p>
       </section>
 
@@ -74,9 +74,11 @@ export default async function Home() {
           </a>
         </div>
         <div className="space-y-6">
-          {posts.slice(0, 2).map((post) => (
+          {posts.slice(0, 3).map((post) => (
             <article key={post.id} className="card group cursor-pointer">
-              <div className="flex justify-between items-start mb-6">
+            <Link href={`/blog/${post.id}`} >
+              
+                <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">
                   {post.title}
                 </h3>
@@ -88,6 +90,8 @@ export default async function Home() {
                 applications.
               </p>
               <div className="mono text-sm text-muted">{post.date}</div>
+             
+            </Link>
             </article>
           ))}
         </div>
@@ -97,22 +101,22 @@ export default async function Home() {
       <footer className="container py-24">
         <div className="flex flex-wrap gap-8 justify-center items-center">
           <a
-            href="https://github.com/themuneebh"
+            href="https://github.com/muneebhashone"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
-            github/themuneebh
+            github/muneebhashone
           </a>
           <a
-            href="https://linkedin.com/in/themuneebh"
+            href="https://linkedin.com/in/muneebhussainmodi"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
-            linkedin/in/themuneebh
+            linkedin/in/muneebhussainmodi
           </a>
           <a
-            href="mailto:muneeb@example.com"
+            href="mailto:mhussain@themuneebh.com"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
-            muneeb@example.com
+            mhussain@themuneebh.com
           </a>
         </div>
       </footer>

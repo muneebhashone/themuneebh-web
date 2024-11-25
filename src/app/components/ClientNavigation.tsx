@@ -34,13 +34,13 @@ export default function ClientNavigation() {
           prefetch={true}
           className="mono text-lg font-semibold hover:text-accent transition-colors"
         >
-          muneeb.
+          themuneebh.
         </Link>
         <nav className="flex gap-2">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/blog">Blog</NavLink>
           <a 
-            href="https://github.com/themuneebh" 
+            href="https://github.com/muneebhashone"  
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mono text-sm text-muted hover:text-accent transition-colors px-4 py-2"

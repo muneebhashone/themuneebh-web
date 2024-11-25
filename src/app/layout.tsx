@@ -1,24 +1,24 @@
-import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import ClientNavigation from "./components/ClientNavigation";
+import { Analytics } from '@vercel/analytics/react';
 
-export const metadata: Metadata = {
-  title: "Muneeb Hussain - Backend Systems Engineer",
-  description: "Backend Systems Engineer with expertise in building robust and scalable systems",
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata = {
+  title: "Muneeb Hashone - Backend Systems Engineer",
+  description: "Backend Systems Engineer specializing in distributed systems",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
-        <ClientNavigation />
-        <main>
-          {children}
-        </main>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
       </body>
     </html>
   );

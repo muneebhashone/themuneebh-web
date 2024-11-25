@@ -13,7 +13,7 @@ export default function Navbar() {
           href="/" 
           className="mono text-lg font-semibold hover:text-accent transition-colors"
         >
-          muneeb.
+          themuneebh.
         </Link>
         <div className="flex gap-8">
           <Link 
@@ -33,7 +33,7 @@ export default function Navbar() {
             Blog
           </Link>
           <a 
-            href="https://github.com/themuneebh" 
+            href="https://github.com/muneebhashone" 
             target="_blank"
             rel="noopener noreferrer"
             className="mono text-sm text-muted hover:text-accent transition-colors"

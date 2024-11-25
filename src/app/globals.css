@@ -17,7 +17,7 @@
 }
 
 :root {
-  --background: #000000;
+  --background: #0c0c0c; /* slate black */
   --foreground: #ffffff;
   --accent: #3b82f6;
   --muted: #94a3b8;
