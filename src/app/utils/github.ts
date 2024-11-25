@@ -10,12 +10,12 @@ export interface GitHubRepo {
 
 export async function getTopRepositories(username: string): Promise<GitHubRepo[]> {
   const response = await fetch(
-    `https://api.github.com/users/${username}/repos?sort=stars&per_page=4`,
+    `https://api.github.com/users/${username}/repos?sort=stars&per_page=200`,
     {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
       },
-      next: { revalidate: 3600 } // Cache for 1 hour
+      next: { revalidate: 3600 * 24 } // Cache for 1 hour
     }
   );
 
