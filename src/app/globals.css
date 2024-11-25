@@ -17,12 +17,14 @@
 }
 
 :root {
-  --background: #0c0c0c; /* slate black */
+  --background: #030711; /* deeper rich black */
   --foreground: #ffffff;
-  --accent: #3b82f6;
+  --accent: #4f46e5; /* indigo */
+  --accent-secondary: #818cf8; /* lighter indigo */
   --muted: #94a3b8;
-  --card: #111111;
-  --hover: #1a1a1a;
+  --card: #0f172a; /* darker slate */
+  --hover: #1e293b; /* slate */
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -41,20 +43,40 @@ body {
   }
   
   .section {
-    @apply py-24;
+    @apply py-24 relative;
   }
   
   .heading {
-    @apply text-4xl sm:text-5xl font-bold mb-12 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent;
+    @apply text-4xl sm:text-5xl font-bold mb-12 bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
   }
   
   .card {
-    @apply p-8 rounded-2xl bg-[var(--card)] border border-white/[0.08] hover:border-white/[0.16] transition-all duration-300 hover:translate-y-[-2px]
+    @apply p-8 rounded-2xl bg-[var(--card)] border border-[var(--border)] 
+           backdrop-blur-3xl backdrop-saturate-200
+           hover:border-[var(--accent-secondary)]/30 
+           transition-all duration-300 
+           hover:translate-y-[-2px]
+           hover:shadow-lg hover:shadow-[var(--accent)]/5;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)] bg-clip-text text-transparent;
   }
+}
+
+/* Add subtle gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top right, 
+              rgba(79, 70, 229, 0.15) 0%, 
+              transparent 50%),
+              radial-gradient(circle at bottom left, 
+              rgba(129, 140, 248, 0.1) 0%, 
+              transparent 50%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 ::selection {
