@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { getDevToArticles } from "./utils/blog";
+import { getTopRepositories } from "./utils/github";
 
 export default async function Home() {
-  const posts = await getDevToArticles();
+  const [posts, repos] = await Promise.all([
+    getDevToArticles(),
+    getTopRepositories('muneebhashone')
+  ]);
 
   return (
     <div className=" bg-background selection:bg-accent selection:text-white">
@@ -25,58 +29,33 @@ export default async function Home() {
       <section className="container section">
         <h2 className="heading">Featured Work</h2>
         <div className="grid sm:grid-cols-2 gap-6">
-          <a href="https://github.com/muneebhashone/express-metrics" className="card group hover:border-accent transition-colors">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">express-metrics</h3>
-              <span className="mono text-sm text-accent">→</span>
-            </div>
-            <p className="text-muted leading-relaxed mb-4">
-              A robust Express.js middleware for collecting and exposing application metrics with Prometheus integration.
-            </p>
-            <div className="flex gap-3">
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">TypeScript</span>
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">Node.js</span>
-            </div>
-          </a>
-          <a href="https://github.com/muneebhashone/react-query-cache" className="card group hover:border-accent transition-colors">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">react-query-cache</h3>
-              <span className="mono text-sm text-accent">→</span>
-            </div>
-            <p className="text-muted leading-relaxed mb-4">
-              Advanced caching strategies and optimizations for React Query, improving application performance.
-            </p>
-            <div className="flex gap-3">
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">React</span>
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">TypeScript</span>
-            </div>
-          </a>
-          <a href="https://github.com/muneebhashone/distributed-lock" className="card group hover:border-accent transition-colors">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">distributed-lock</h3>
-              <span className="mono text-sm text-accent">→</span>
-            </div>
-            <p className="text-muted leading-relaxed mb-4">
-              A distributed locking implementation using Redis for coordinating access in distributed systems.
-            </p>
-            <div className="flex gap-3">
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">Go</span>
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">Redis</span>
-            </div>
-          </a>
-          <a href="https://github.com/muneebhashone/k8s-autoscaler" className="card group hover:border-accent transition-colors">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">k8s-autoscaler</h3>
-              <span className="mono text-sm text-accent">→</span>
-            </div>
-            <p className="text-muted leading-relaxed mb-4">
-              Custom Kubernetes autoscaling solution with advanced metrics-based scaling policies.
-            </p>
-            <div className="flex gap-3">
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">Kubernetes</span>
-              <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">Go</span>
-            </div>
-          </a>
+          {repos.map((repo) => (
+            <a 
+              key={repo.id}
+              href={repo.html_url} 
+              className="card group hover:border-accent transition-colors"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">
+                  {repo.name}
+                </h3>
+                <span className="mono text-sm text-accent">→</span>
+              </div>
+              <p className="text-muted leading-relaxed mb-4">
+                {repo.description || 'No description available'}
+              </p>
+              <div className="flex gap-3">
+                {repo.language && (
+                  <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">
+                    {repo.language}
+                  </span>
+                )}
+                <span className="mono text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">
+                  ★ {repo.stargazers_count}
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
