@@ -170,10 +170,10 @@ export default async function Home() {
             linkedin/in/muneebhussainmodi
           </Link>
           <Link
-            href="mailto:mhussain@themuneebh.com"
+            href="mailto:themuneebh@gmail.com"
             className="mono text-sm text-muted hover:text-accent transition-colors"
           >
-            mhussain@themuneebh.com
+            themuneebh@gmail.com
           </Link>
         </div>
       </footer>
