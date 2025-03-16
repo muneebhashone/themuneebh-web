@@ -142,9 +142,7 @@ export default async function Home() {
                 <span className="mono text-sm text-accent">→</span>
               </div>
               <p className="text-muted mb-4 leading-relaxed">
-                A comprehensive guide to designing and implementing
-                fault-tolerant microservices architecture for enterprise
-                applications.
+                {post.description}
               </p>
               <div className="mono text-sm text-muted">{post.date}</div>
              
