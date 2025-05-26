@@ -23,7 +23,7 @@ export default function HeroSection() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="text-5xl sm:text-7xl font-bold mb-8 leading-tight"
       >
-        Building Tomorrow's
+        Building Tomorrow&apos;s
         <br />
         <span className="gradient-text">Web</span>, Today.
       </motion.h1>
