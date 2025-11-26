@@ -55,13 +55,18 @@ body {
   }
   
   .card {
-    @apply p-8 rounded-2xl bg-[var(--card)] border border-[var(--border)] 
+    @apply p-8 rounded-2xl border 
            backdrop-blur-3xl backdrop-saturate-200
-           hover:border-[var(--accent)]/40
-           transition-all duration-300 
-           hover:translate-y-[-4px]
-           hover:shadow-xl hover:shadow-[var(--accent)]/10
-           hover:bg-[var(--card)]/95;
+           transition-all duration-300;
+    background-color: var(--card);
+    border-color: var(--border);
+  }
+  
+  .card:hover {
+    border-color: rgba(20, 184, 166, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.1), 0 10px 10px -5px rgba(20, 184, 166, 0.04);
+    background-color: rgba(23, 23, 23, 0.95);
   }
 
   .accent-text {
