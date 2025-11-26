@@ -32,9 +32,9 @@ export default function ClientNavigation() {
         <Link 
           href="/"
           prefetch={true}
-          className="mono text-lg font-semibold hover:text-accent transition-colors"
+          className="mono text-lg font-semibold hover:text-accent transition-colors flex items-center gap-2"
         >
-          themuneebh.
+          <span className="gradient-text">muneeb.</span>
         </Link>
         <nav className="flex gap-2">
           <NavLink href="/">Home</NavLink>

@@ -6,8 +6,8 @@ import ClientNavigation from "./components/ClientNavigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Muneeb Hashone - Backend Systems Engineer",
-  description: "Backend Systems Engineer specializing in distributed systems",
+  title: "Muneeb Hashone - AI Systems Architect & SaaS Builder",
+  description: "Building the future of intelligent systems. AI-powered SaaS platforms, agentic coding, and scalable backend architecture.",
 };
 
 export default function RootLayout({
