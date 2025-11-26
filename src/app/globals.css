@@ -27,6 +27,10 @@
   --border: rgba(255, 255, 255, 0.1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -34,6 +38,7 @@ body {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 .mono {
@@ -43,34 +48,104 @@ body {
 
 @layer components {
   .container {
-    @apply max-w-5xl mx-auto px-6 sm:px-8;
+    @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
   }
   
   .section {
-    @apply py-24 relative;
+    @apply py-32 relative;
+    scroll-margin-top: 80px;
+  }
+  
+  .section-spacing {
+    @apply mb-20;
   }
   
   .heading {
-    @apply text-4xl sm:text-5xl font-bold mb-12 text-white;
+    @apply text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-white;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  .heading-subtitle {
+    @apply text-xl sm:text-2xl text-muted mb-16;
+    line-height: 1.7;
+    max-width: 42rem;
   }
   
   .card {
-    @apply p-8 rounded-2xl border 
+    @apply p-10 rounded-2xl border 
            backdrop-blur-3xl backdrop-saturate-200
-           transition-all duration-300;
+           transition-all duration-500 ease-out;
     background-color: var(--card);
     border-color: var(--border);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
   }
   
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
+  .card:nth-child(5) { animation-delay: 0.5s; }
+  .card:nth-child(6) { animation-delay: 0.6s; }
+  
   .card:hover {
-    border-color: rgba(20, 184, 166, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.1), 0 10px 10px -5px rgba(20, 184, 166, 0.04);
-    background-color: rgba(23, 23, 23, 0.95);
+    border-color: rgba(20, 184, 166, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.15), 0 0 0 1px rgba(20, 184, 166, 0.1);
+    background-color: rgba(23, 23, 23, 0.98);
   }
 
   .accent-text {
     @apply text-[var(--accent)];
+    font-weight: 600;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -88,6 +163,18 @@ body::before {
       transparent 50%);
   z-index: -1;
   pointer-events: none;
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 ::selection {
