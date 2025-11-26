@@ -67,6 +67,7 @@ body {
   .accent-text {
     @apply text-[var(--accent)];
   }
+}
 
 /* Subtle dark background texture */
 body::before {
