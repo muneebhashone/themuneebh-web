@@ -67,7 +67,8 @@ body {
   }
   
   .heading-subtitle {
-    @apply text-xl sm:text-2xl text-muted mb-16;
+    @apply text-xl sm:text-2xl mb-16;
+    color: var(--muted);
     line-height: 1.7;
     max-width: 42rem;
   }

@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        muted: 'var(--muted)',
+      },
       container: {
         center: true,
         padding: '1rem',
