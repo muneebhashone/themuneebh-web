@@ -15,10 +15,10 @@ export default async function Home() {
     <div className="bg-background selection:bg-accent selection:text-white">
       {/* Hero Section */}
       <section className="container section flex flex-col justify-center pt-36 pb-16 relative overflow-hidden">
-        {/* Animated background elements */}
+        {/* Subtle background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/3 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative z-10">
@@ -29,7 +29,7 @@ export default async function Home() {
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
             Building the future of
             <br />
-            <span className="gradient-text-animated">intelligent systems</span>
+            <span className="accent-text">intelligent systems</span>
           </h1>
           <p className="text-xl sm:text-2xl text-muted max-w-3xl leading-relaxed mb-12">
             I architect AI-powered SaaS platforms and agentic coding systems that transform how teams build, deploy, and scale. Passionate about pushing the boundaries of what's possible with intelligent automation.
@@ -42,7 +42,7 @@ export default async function Home() {
               <span className="text-sm mono">AI & ML Systems</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 backdrop-blur-sm">
-              <Rocket className="w-4 h-4 text-accent-secondary" />
+              <Rocket className="w-4 h-4 text-accent" />
               <span className="text-sm mono">SaaS Architecture</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 backdrop-blur-sm">
@@ -50,7 +50,7 @@ export default async function Home() {
               <span className="text-sm mono">Agentic Coding</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 backdrop-blur-sm">
-              <Zap className="w-4 h-4 text-accent-secondary" />
+              <Zap className="w-4 h-4 text-accent" />
               <span className="text-sm mono">Scalable Backends</span>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default async function Home() {
             <span>Core Expertise</span>
           </div>
           <h2 className="heading text-center mb-6">
-            Where <span className="gradient-text">AI meets</span> enterprise scale
+            Where <span className="accent-text">AI meets</span> enterprise scale
           </h2>
           <p className="text-lg text-muted max-w-2xl mx-auto">
             Specializing in cutting-edge AI systems, SaaS platforms, and agentic coding solutions that drive real business value.
@@ -90,12 +90,12 @@ export default async function Home() {
           
           <div className="card group hover:border-accent/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-lg bg-accent-secondary/10 border border-accent-secondary/20">
-                <Rocket className="w-6 h-6 text-accent-secondary" />
+              <div className="p-3 rounded-lg bg-accent/10 border border-accent/20">
+                <Rocket className="w-6 h-6 text-accent" />
               </div>
-              <div className="mono text-accent-secondary text-sm">02</div>
+              <div className="mono text-accent text-sm">02</div>
             </div>
-            <h3 className="text-2xl font-semibold mb-4 group-hover:text-accent-secondary transition-colors">
+            <h3 className="text-2xl font-semibold mb-4 group-hover:text-accent transition-colors">
               SaaS Architecture
             </h3>
             <p className="text-muted leading-relaxed">
@@ -120,12 +120,12 @@ export default async function Home() {
           
           <div className="card group hover:border-accent/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-lg bg-accent-secondary/10 border border-accent-secondary/20">
-                <Zap className="w-6 h-6 text-accent-secondary" />
+              <div className="p-3 rounded-lg bg-accent/10 border border-accent/20">
+                <Zap className="w-6 h-6 text-accent" />
               </div>
-              <div className="mono text-accent-secondary text-sm">04</div>
+              <div className="mono text-accent text-sm">04</div>
             </div>
-            <h3 className="text-2xl font-semibold mb-4 group-hover:text-accent-secondary transition-colors">
+            <h3 className="text-2xl font-semibold mb-4 group-hover:text-accent transition-colors">
               System Architecture
             </h3>
             <p className="text-muted leading-relaxed">
@@ -150,12 +150,12 @@ export default async function Home() {
           
           <div className="card group hover:border-accent/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-lg bg-accent-secondary/10 border border-accent-secondary/20">
-                <Rocket className="w-6 h-6 text-accent-secondary" />
+              <div className="p-3 rounded-lg bg-accent/10 border border-accent/20">
+                <Rocket className="w-6 h-6 text-accent" />
               </div>
-              <div className="mono text-accent-secondary text-sm">06</div>
+              <div className="mono text-accent text-sm">06</div>
             </div>
-            <h3 className="text-2xl font-semibold mb-4 group-hover:text-accent-secondary transition-colors">
+            <h3 className="text-2xl font-semibold mb-4 group-hover:text-accent transition-colors">
               Serverless & Cloud
             </h3>
             <p className="text-muted leading-relaxed">
@@ -198,7 +198,7 @@ export default async function Home() {
                     {repo.language}
                   </span>
                 )}
-                <span className="flex gap-2 items-center mono text-xs px-3 py-1.5 rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">
+                <span className="flex gap-2 items-center mono text-xs px-3 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/20">
                   <Star className="w-4 h-4" /> {repo.stargazers_count}
                 </span>
               </div>
@@ -209,8 +209,8 @@ export default async function Home() {
 
       {/* CTA Section */}
       <section className="container section">
-        <div className="card bg-gradient-to-br from-accent/10 via-accent-secondary/5 to-transparent border-accent/30 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent opacity-50"></div>
+        <div className="card bg-card border-accent/30 relative overflow-hidden">
+          <div className="absolute inset-0 bg-accent/5 opacity-30"></div>
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 mono text-sm text-accent mb-6 px-4 py-2 rounded-full bg-accent/20 border border-accent/30">
               <Rocket className="w-4 h-4" />
@@ -219,7 +219,7 @@ export default async function Home() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
               Ready to transform your
               <br />
-              <span className="gradient-text">engineering capabilities?</span>
+              <span className="accent-text">engineering capabilities?</span>
             </h2>
             <p className="text-lg text-muted mb-8 leading-relaxed">
               Whether you're building AI-powered SaaS platforms, implementing agentic coding workflows, or scaling your infrastructure—I help teams ship faster, smarter, and at scale. Let's discuss how we can accelerate your next breakthrough.
@@ -251,12 +251,12 @@ export default async function Home() {
               <span>Latest Insights</span>
             </div>
             <h2 className="heading mb-0 leading-tight">
-              Thoughts on <span className="gradient-text">AI, SaaS & Engineering</span>
+              Thoughts on <span className="accent-text">AI, SaaS & Engineering</span>
             </h2>
           </div>
           <Link
             href="/blog"
-            className="mono text-sm text-accent hover:text-accent-secondary transition-colors px-4 py-2 rounded-lg hover:bg-accent/10 border border-transparent hover:border-accent/20"
+            className="mono text-sm text-accent hover:text-accent transition-colors px-4 py-2 rounded-lg hover:bg-accent/10 border border-transparent hover:border-accent/20"
           >
             View all →
           </Link>

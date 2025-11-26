@@ -28,8 +28,8 @@ const config: Config = {
               fontWeight: '700',
             },
             code: {
-              color: 'rgb(var(--accent-secondary))',
-              backgroundColor: 'rgba(79, 70, 229, 0.1)',
+              color: 'rgb(var(--accent))',
+              backgroundColor: 'rgba(20, 184, 166, 0.1)',
               borderRadius: '0.375rem',
               padding: '0.2em 0.4em',
               fontWeight: '500',

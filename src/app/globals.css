@@ -17,24 +17,28 @@
 }
 
 :root {
-  --background: #0a0e1a; /* deeper rich black with slight blue tint */
+  --background: #0a0a0a; /* deep black */
   --foreground: #ffffff;
-  --accent: #6366f1; /* vibrant indigo */
-  --accent-secondary: #8b5cf6; /* purple accent */
-  --muted: #a1a1aa;
-  --card: #111827; /* darker slate with more depth */
-  --hover: #1f2937; /* slate */
-  --border: rgba(255, 255, 255, 0.08);
+  --accent: #14b8a6; /* dark teal/cyan */
+  --accent-secondary: #0d9488; /* darker teal */
+  --muted: #9ca3af;
+  --card: #171717; /* dark gray */
+  --hover: #262626; /* slightly lighter gray */
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .mono {
-  font-family: 'Geist Mono', monospace;
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-feature-settings: 'liga' 1, 'calt' 1;
 }
 
 @layer components {
@@ -47,7 +51,7 @@ body {
   }
   
   .heading {
-    @apply text-4xl sm:text-5xl font-bold mb-12 bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+    @apply text-4xl sm:text-5xl font-bold mb-12 text-white;
   }
   
   .card {
@@ -60,53 +64,24 @@ body {
            hover:bg-[var(--card)]/95;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)] bg-clip-text text-transparent;
+  .accent-text {
+    @apply text-[var(--accent)];
   }
-  
-  .gradient-text-animated {
-    @apply bg-gradient-to-r from-[var(--accent)] via-[var(--accent-secondary)] to-[var(--accent)] bg-clip-text text-transparent;
-    background-size: 200% auto;
-    animation: gradient-shift 3s ease infinite;
-  }
-}
 
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-/* Add subtle gradient background with more depth */
+/* Subtle dark background texture */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background: 
     radial-gradient(circle at 20% 30%, 
-      rgba(99, 102, 241, 0.15) 0%, 
+      rgba(20, 184, 166, 0.03) 0%, 
       transparent 50%),
     radial-gradient(circle at 80% 70%, 
-      rgba(139, 92, 246, 0.12) 0%, 
-      transparent 50%),
-    radial-gradient(circle at 50% 50%, 
-      rgba(99, 102, 241, 0.05) 0%, 
-      transparent 70%);
+      rgba(20, 184, 166, 0.02) 0%, 
+      transparent 50%);
   z-index: -1;
   pointer-events: none;
-  animation: background-pulse 20s ease-in-out infinite;
-}
-
-@keyframes background-pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
 }
 
 ::selection {

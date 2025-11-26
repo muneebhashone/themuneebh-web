@@ -34,7 +34,7 @@ export default function ClientNavigation() {
           prefetch={true}
           className="mono text-lg font-semibold hover:text-accent transition-colors flex items-center gap-2"
         >
-          <span className="gradient-text">muneeb.</span>
+          <span className="accent-text">muneeb.</span>
         </Link>
         <nav className="flex gap-2">
           <NavLink href="/">Home</NavLink>
