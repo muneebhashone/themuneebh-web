@@ -32,7 +32,7 @@ export default async function Home() {
             <span className="accent-text">intelligent systems</span>
           </h1>
           <p className="text-xl sm:text-2xl text-muted max-w-3xl leading-relaxed mb-12">
-            I architect AI-powered SaaS platforms and agentic coding systems that transform how teams build, deploy, and scale. Passionate about pushing the boundaries of what's possible with intelligent automation.
+            I architect AI-powered SaaS platforms and agentic coding systems that transform how teams build, deploy, and scale. Passionate about pushing the boundaries of what&apos;s possible with intelligent automation.
           </p>
           
           {/* Key Focus Areas */}
@@ -214,7 +214,7 @@ export default async function Home() {
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 mono text-sm text-accent mb-6 px-4 py-2 rounded-full bg-accent/20 border border-accent/30">
               <Rocket className="w-4 h-4" />
-              <span>Let's Build Together</span>
+              <span>Let&apos;s Build Together</span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
               Ready to transform your
@@ -222,7 +222,7 @@ export default async function Home() {
               <span className="accent-text">engineering capabilities?</span>
             </h2>
             <p className="text-lg text-muted mb-8 leading-relaxed">
-              Whether you're building AI-powered SaaS platforms, implementing agentic coding workflows, or scaling your infrastructure—I help teams ship faster, smarter, and at scale. Let's discuss how we can accelerate your next breakthrough.
+              Whether you&apos;re building AI-powered SaaS platforms, implementing agentic coding workflows, or scaling your infrastructure—I help teams ship faster, smarter, and at scale. Let&apos;s discuss how we can accelerate your next breakthrough.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
@@ -285,7 +285,7 @@ export default async function Home() {
       <footer className="container py-24 border-t border-border/50">
         <div className="flex flex-col items-center gap-8">
           <div className="text-center mb-4">
-            <h3 className="text-2xl font-bold mb-2">Let's connect</h3>
+            <h3 className="text-2xl font-bold mb-2">Let&apos;s connect</h3>
             <p className="text-muted">Building the future, one system at a time</p>
           </div>
           <div className="flex flex-wrap gap-6 justify-center items-center">
