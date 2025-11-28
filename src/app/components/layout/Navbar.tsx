@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { siteConfig } from "@/app/data/config";
@@ -12,6 +12,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [pendingAnchor, setPendingAnchor] = useState<string | null>(null);
+  const scrollLockY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +28,24 @@ export function Navbar() {
     setIsMounted(true);
   }, []);
 
-  // Close mobile menu when clicking on a link
-  const handleNavClick = () => {
+  // Close mobile menu when clicking on a link/button; detect hash anchors
+  const handleNavClick = (
+    hrefOrEvent?: string | MouseEvent<HTMLElement>
+  ) => {
+    let targetHref: string | null = null;
+
+    if (typeof hrefOrEvent === "string") {
+      targetHref = hrefOrEvent;
+    } else if (hrefOrEvent?.currentTarget) {
+      const attr = hrefOrEvent.currentTarget.getAttribute("href");
+      if (attr) targetHref = attr;
+    }
+
+    if (targetHref?.startsWith("#")) {
+      setPendingAnchor(targetHref);
+    } else {
+      setPendingAnchor(null);
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -37,11 +55,11 @@ export function Navbar() {
 
     const previousBodyOverflow = document.body.style.overflow;
     const previousHtmlOverflow = document.documentElement.style.overflow;
-    const scrollY = window.scrollY;
 
     if (isMobileMenuOpen) {
+      scrollLockY.current = window.scrollY;
       document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
+      document.body.style.top = `-${scrollLockY.current}px`;
       document.body.style.left = "0";
       document.body.style.right = "0";
       document.body.style.overflow = "hidden";
@@ -53,7 +71,7 @@ export function Navbar() {
       document.body.style.right = "";
       document.body.style.overflow = previousBodyOverflow || "unset";
       document.documentElement.style.overflow = previousHtmlOverflow || "unset";
-      window.scrollTo(0, scrollY);
+      window.scrollTo(0, scrollLockY.current);
     }
 
     return () => {
@@ -65,6 +83,25 @@ export function Navbar() {
       document.documentElement.style.overflow = previousHtmlOverflow || "unset";
     };
   }, [isMobileMenuOpen, isMounted]);
+
+  // After menu closes, scroll to the pending in-page anchor if present
+  useEffect(() => {
+    if (isMobileMenuOpen || !pendingAnchor) return;
+
+    const hash = pendingAnchor;
+    setPendingAnchor(null);
+
+    // Wait a frame so body unlock completes before scrolling
+    requestAnimationFrame(() => {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // Fallback to default hash change
+        window.location.hash = hash;
+      }
+    });
+  }, [isMobileMenuOpen, pendingAnchor]);
 
   const navHeight = isScrolled ? "h-16" : "h-20";
 
@@ -103,11 +140,14 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a href="#contact">
-              <Button variant="primary" size="sm">
-                Let&apos;s Talk
-              </Button>
-            </a>
+            <Button
+              variant="primary"
+              size="sm"
+              href="#contact"
+              onClick={handleNavClick}
+            >
+              Let&apos;s Talk
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -178,11 +218,15 @@ export function Navbar() {
                       transition={{ delay: 0.4 }}
                       className="pt-8 border-t border-white/10"
                     >
-                      <a href="#contact">
-                        <Button variant="primary" size="lg" className="w-full">
-                          Let&apos;s Talk
-                        </Button>
-                      </a>
+                      <Button
+                        variant="primary"
+                        size="lg"
+                        href="#contact"
+                        className="w-full"
+                        onClick={handleNavClick}
+                      >
+                        Let&apos;s Talk
+                      </Button>
                     </motion.div>
 
                     {/* Footer Info */}

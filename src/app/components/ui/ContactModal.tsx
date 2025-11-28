@@ -86,19 +86,19 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Start a Project">
       {status === 'success' ? (
-        <div className="text-center py-8">
-          <CheckCircle className="w-16 h-16 text-lime mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-          <p className="text-gray-400">
+        <div className="text-center py-6 sm:py-8">
+          <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-lime mx-auto mb-3 sm:mb-4" />
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Message Sent!</h3>
+          <p className="text-sm sm:text-base text-gray-400">
             Thanks for reaching out. I&apos;ll get back to you within 24 hours.
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           {/* Name & Email */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-mono text-gray-400 mb-2">
+              <label htmlFor="name" className="block text-xs sm:text-sm font-mono text-gray-400 mb-1.5 sm:mb-2">
                 Name *
               </label>
               <input
@@ -108,13 +108,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-black border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-black border border-white/10 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-mono text-gray-400 mb-2">
+              <label htmlFor="email" className="block text-xs sm:text-sm font-mono text-gray-400 mb-1.5 sm:mb-2">
                 Email *
               </label>
               <input
@@ -124,7 +124,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-black border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-black border border-white/10 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors"
                 placeholder="your@email.com"
               />
             </div>
@@ -132,7 +132,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
           {/* Company */}
           <div>
-            <label htmlFor="company" className="block text-sm font-mono text-gray-400 mb-2">
+            <label htmlFor="company" className="block text-xs sm:text-sm font-mono text-gray-400 mb-1.5 sm:mb-2">
               Company (Optional)
             </label>
             <input
@@ -141,15 +141,15 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-black border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-black border border-white/10 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors"
               placeholder="Your company name"
             />
           </div>
 
           {/* Project Type & Budget */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             <div>
-              <label htmlFor="projectType" className="block text-sm font-mono text-gray-400 mb-2">
+              <label htmlFor="projectType" className="block text-xs sm:text-sm font-mono text-gray-400 mb-1.5 sm:mb-2">
                 Project Type
               </label>
               <select
@@ -157,7 +157,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-black border border-white/10 rounded-xl text-white focus:outline-none focus:border-lime transition-colors appearance-none cursor-pointer"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-black border border-white/10 rounded-lg sm:rounded-xl text-sm sm:text-base text-white focus:outline-none focus:border-lime transition-colors appearance-none cursor-pointer"
               >
                 <option value="">Select type</option>
                 <option value="Live Streaming">Live Streaming Platform</option>
@@ -170,7 +170,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             <div>
-              <label htmlFor="budget" className="block text-sm font-mono text-gray-400 mb-2">
+              <label htmlFor="budget" className="block text-xs sm:text-sm font-mono text-gray-400 mb-1.5 sm:mb-2">
                 Budget Range
               </label>
               <select
@@ -178,7 +178,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-black border border-white/10 rounded-xl text-white focus:outline-none focus:border-lime transition-colors appearance-none cursor-pointer"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-black border border-white/10 rounded-lg sm:rounded-xl text-sm sm:text-base text-white focus:outline-none focus:border-lime transition-colors appearance-none cursor-pointer"
               >
                 <option value="">Select budget</option>
                 <option value="<$10k">Less than $10k</option>
@@ -192,7 +192,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
           {/* Message */}
           <div>
-            <label htmlFor="message" className="block text-sm font-mono text-gray-400 mb-2">
+            <label htmlFor="message" className="block text-xs sm:text-sm font-mono text-gray-400 mb-1.5 sm:mb-2">
               Project Details *
             </label>
             <textarea
@@ -201,29 +201,30 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               value={formData.message}
               onChange={handleChange}
               required
-              rows={6}
-              className="w-full px-4 py-3 bg-black border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors resize-none"
+              rows={4}
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-black border border-white/10 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-600 focus:outline-none focus:border-lime transition-colors resize-none sm:rows-6"
               placeholder="Tell me about your project, timeline, and any specific requirements..."
             />
           </div>
 
           {/* Error Message */}
           {status === 'error' && (
-            <div className="flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-              <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-red-500/10 border border-red-500/20 rounded-lg sm:rounded-xl">
+              <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-red-500 text-sm font-medium">Failed to send message</p>
+                <p className="text-red-500 text-xs sm:text-sm font-medium">Failed to send message</p>
                 <p className="text-red-400 text-xs mt-1">{errorMessage}</p>
               </div>
             </div>
           )}
 
           {/* Submit Button */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
             <Button
               type="button"
               variant="ghost"
-              className="flex-1"
+              size="md"
+              className="w-full sm:flex-1"
               onClick={onClose}
               disabled={status === 'sending'}
             >
@@ -232,7 +233,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <Button
               type="submit"
               variant="primary"
-              className="flex-1"
+              size="md"
+              className="w-full sm:flex-1"
               disabled={status === 'sending'}
             >
               {status === 'sending' ? (
