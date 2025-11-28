@@ -72,7 +72,7 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navHeight} ${
+        className={`fixed top-0 left-0 right-0 z-[120] transition-all duration-300 ${navHeight} ${
           isScrolled
             ? "bg-black/90 backdrop-blur-xl border-b border-white/5"
             : "bg-transparent"
@@ -81,7 +81,7 @@ export function Navbar() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
-        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between relative z-[60]">
+        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between relative">
           {/* Logo */}
           <Link href="/" target="_top" className="flex items-center group">
             <span className="text-2xl font-bold text-white">MH</span>
@@ -142,7 +142,7 @@ export function Navbar() {
 
                 {/* Menu Panel */}
                 <motion.div
-                  className={`fixed right-0 bottom-0 w-full max-w-sm bg-black-elevated border-l border-white/10 z-[100] md:hidden overflow-y-auto transition-all duration-300 shadow-2xl shadow-black/40`}
+                  className={`fixed right-0 bottom-0 w-full max-w-sm bg-black-elevated border-l border-white/10 z-[110] md:hidden overflow-y-auto transition-all duration-300 shadow-2xl shadow-black/40`}
                   style={{ top: isScrolled ? "4rem" : "5rem" }}
                   initial={{ x: "100%" }}
                   animate={{ x: 0 }}
