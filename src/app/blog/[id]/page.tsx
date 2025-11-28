@@ -16,7 +16,8 @@ interface BlogPostPageProps {
 }
 
 export default async function BlogPost({ params }: BlogPostPageProps) {
-  const post = await getDevToArticle(params.id);
+  const { id } = await params;
+  const post = await getDevToArticle(id);
 
   if (!post) {
     return (
