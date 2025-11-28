@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { Badge } from '../ui/Badge';
 import { SectionHeader } from '../ui/SectionHeader';
 import { StaggerChildren, StaggerItem } from '../animations/StaggerChildren';
@@ -20,7 +21,9 @@ export function CaseStudies() {
         <StaggerChildren className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {caseStudies.map((study) => (
             <StaggerItem key={study.id}>
-              <CaseStudyCard study={study} />
+              <Link href={`/case-studies/${study.id}`} target="_top">
+                <CaseStudyCard study={study} />
+              </Link>
             </StaggerItem>
           ))}
         </StaggerChildren>
@@ -33,7 +36,7 @@ function CaseStudyCard({ study }: { study: typeof caseStudies[0] }) {
   return (
     <motion.article
       className="relative p-8 md:p-12 rounded-3xl bg-black-card border border-white/10
-                 transition-all duration-300 group cursor-pointer"
+                 transition-all duration-300 group"
       whileHover={{
         y: -8,
         borderColor: 'var(--accent-lime)',

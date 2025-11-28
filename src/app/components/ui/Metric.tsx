@@ -20,7 +20,7 @@ export function Metric({ value, label, change, numeric }: MetricProps) {
 
   return (
     <div className="text-center">
-      <div className="text-3xl md:text-4xl lg:text-5xl font-black text-lime mb-2 mono">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-lime mb-1 sm:mb-2 mono">
         {shouldAnimate ? (
           <span ref={countUp.ref as React.RefObject<HTMLSpanElement>}>
             {countUp.formattedValue}
@@ -29,7 +29,7 @@ export function Metric({ value, label, change, numeric }: MetricProps) {
           value
         )}
       </div>
-      <div className="text-xs md:text-sm font-mono uppercase tracking-wide text-gray-600">
+      <div className="text-[10px] sm:text-xs md:text-sm font-mono uppercase tracking-wide text-gray-600 leading-tight">
         {label}
       </div>
       {change && (

@@ -33,24 +33,24 @@ export function Hero() {
   const headlineParts = hero.headline.split(hero.headlineAccent);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto text-center w-full">
         {/* Eyebrow */}
         <motion.div
-          className="flex items-center justify-center gap-2 mb-8"
+          className="flex items-center justify-center gap-2 mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <span className="w-2 h-2 bg-lime rounded-full"></span>
-          <span className="text-lime text-xs md:text-sm font-mono uppercase tracking-wide">
+          <span className="text-lime text-xs sm:text-sm font-mono uppercase tracking-wide">
             {hero.eyebrow}
           </span>
         </motion.div>
 
         {/* Headline with staggered characters */}
         <motion.h1
-          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 leading-tight px-2"
           style={{ letterSpacing: 'var(--tracking-tighter)' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -71,7 +71,7 @@ export function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -81,7 +81,7 @@ export function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-20 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
@@ -90,6 +90,7 @@ export function Hero() {
             variant="primary"
             size="lg"
             href={hero.cta.primary.href}
+            className="w-full sm:w-auto"
           >
             {hero.cta.primary.label}
           </Button>
@@ -97,7 +98,7 @@ export function Hero() {
             variant="secondary"
             size="lg"
             onClick={handleStartProject}
-
+            className="w-full sm:w-auto"
           >
             {hero.cta.secondary.label}
           </Button>
@@ -105,7 +106,7 @@ export function Hero() {
 
         {/* Trust Indicators */}
         <motion.div
-          className="grid grid-cols-3 gap-8 md:gap-12 max-w-2xl mx-auto"
+          className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 max-w-2xl mx-auto px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
@@ -129,7 +130,7 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 hidden sm:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.4 }}
