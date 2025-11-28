@@ -67,7 +67,6 @@ export function Navbar() {
   }, [isMobileMenuOpen, isMounted]);
 
   const navHeight = isScrolled ? "h-16" : "h-20";
-  const menuTopPosition = isScrolled ? "top-16" : "top-20";
 
   return (
     <>
@@ -104,9 +103,11 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="primary" size="sm" href="#contact">
-              Let&apos;s Talk
-            </Button>
+            <a href="#contact">
+              <Button variant="primary" size="sm">
+                Let&apos;s Talk
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -177,15 +178,11 @@ export function Navbar() {
                       transition={{ delay: 0.4 }}
                       className="pt-8 border-t border-white/10"
                     >
-                      <Button
-                        variant="primary"
-                        size="lg"
-                        href="#contact"
-                        className="w-full"
-                        onClick={handleNavClick}
-                      >
-                        Let&apos;s Talk
-                      </Button>
+                      <a href="#contact">
+                        <Button variant="primary" size="lg" className="w-full">
+                          Let&apos;s Talk
+                        </Button>
+                      </a>
                     </motion.div>
 
                     {/* Footer Info */}

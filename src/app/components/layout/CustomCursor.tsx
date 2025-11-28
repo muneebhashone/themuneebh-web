@@ -1,19 +1,31 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { motion } from "motion/react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Only show cursor on desktop
-    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-    if (!isDesktop) return;
+    setIsMounted(true);
 
-    setIsVisible(true);
+    const media = window.matchMedia("(min-width: 1024px)");
+    const handleChange = (event: MediaQueryListEvent) =>
+      setIsDesktop(event.matches);
+
+    setIsDesktop(media.matches);
+    media.addEventListener("change", handleChange);
+
+    return () => media.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    // Only show cursor on desktop viewports
+    if (!isDesktop) return;
 
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -38,15 +50,15 @@ export function CustomCursor() {
         el.removeEventListener('mouseleave', handleMouseLeave);
       });
     };
-  }, []);
+  }, [isDesktop]);
 
-  if (!isVisible) return null;
+  if (!isMounted || !isDesktop) return null;
 
-  return (
+  return createPortal(
     <>
       {/* Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-lime rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 w-2 h-2 bg-lime rounded-full pointer-events-none z-[99999] mix-blend-difference"
         style={{
           x: mousePosition.x - 4,
           y: mousePosition.y - 4,
@@ -55,7 +67,7 @@ export function CustomCursor() {
           scale: isHovering ? 0 : 1,
         }}
         transition={{
-          type: 'spring',
+          type: "spring",
           stiffness: 500,
           damping: 28,
         }}
@@ -63,7 +75,7 @@ export function CustomCursor() {
 
       {/* Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-lime rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-lime rounded-full pointer-events-none z-[99999] mix-blend-difference"
         style={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
@@ -73,12 +85,13 @@ export function CustomCursor() {
           opacity: isHovering ? 0.5 : 0.3,
         }}
         transition={{
-          type: 'spring',
+          type: "spring",
           stiffness: 150,
           damping: 15,
           mass: 0.1,
         }}
       />
-    </>
+    </>,
+    document.body
   );
 }
