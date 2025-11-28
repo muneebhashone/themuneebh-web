@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Geist';
-  src: url('./fonts/GeistVF.woff') format('woff');
+  font-family: "Geist";
+  src: url("./fonts/GeistVF.woff") format("woff");
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Geist Mono';
-  src: url('./fonts/GeistMonoVF.woff') format('woff');
+  font-family: "Geist Mono";
+  src: url("./fonts/GeistMonoVF.woff") format("woff");
   font-weight: 100 900;
   font-style: normal;
 }
@@ -19,17 +19,17 @@
 :root {
   /* Monochrome Base */
   --black: #000000;
-  --black-elevated: #0A0A0A;
+  --black-elevated: #0a0a0a;
   --black-card: #141414;
-  --gray-900: #1A1A1A;
+  --gray-900: #1a1a1a;
   --gray-800: #262626;
   --gray-600: #666666;
   --gray-400: #999999;
-  --white: #FFFFFF;
+  --white: #ffffff;
 
   /* Electric Lime Accent */
-  --accent-lime: #CCFF00;
-  --accent-lime-dim: #A8D600;
+  --accent-lime: #ccff00;
+  --accent-lime-dim: #a8d600;
   --accent-lime-glow: rgba(204, 255, 0, 0.15);
   --accent-lime-ultra: rgba(204, 255, 0, 0.05);
 
@@ -62,37 +62,37 @@
   --tracking-wide: 0.05em;
 
   /* Spacing Scale (8px base) */
-  --space-4: 2rem;      /* 32px */
-  --space-6: 3rem;      /* 48px */
-  --space-8: 4rem;      /* 64px */
-  --space-12: 6rem;     /* 96px */
-  --space-20: 10rem;    /* 160px */
-  --space-24: 12rem;    /* 192px */
+  --space-4: 2rem; /* 32px */
+  --space-6: 3rem; /* 48px */
+  --space-8: 4rem; /* 64px */
+  --space-12: 6rem; /* 96px */
+  --space-20: 10rem; /* 160px */
+  --space-24: 12rem; /* 192px */
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  font-family: "Geist", system-ui, -apple-system, sans-serif;
 }
 
 .mono {
-  font-family: 'Geist Mono', monospace;
+  font-family: "Geist Mono", monospace;
 }
 
 @layer components {
   .container {
     @apply max-w-5xl mx-auto px-6 sm:px-8;
   }
-  
+
   .section {
     @apply py-24 relative;
   }
-  
+
   .heading {
     @apply text-4xl sm:text-5xl font-bold mb-12 bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
   }
-  
+
   .card {
     @apply p-8 rounded-2xl bg-[var(--card)] border border-[var(--border)]
            backdrop-blur-3xl backdrop-saturate-200
@@ -109,22 +109,26 @@ body {
 
 /* Add subtle gradient background */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at top right,
-              var(--accent-lime-ultra) 0%,
-              transparent 50%),
-              radial-gradient(circle at bottom left,
-              var(--accent-lime-ultra) 0%,
-              transparent 50%);
+  background: radial-gradient(
+      circle at top right,
+      var(--accent-lime-ultra) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      var(--accent-lime-ultra) 0%,
+      transparent 50%
+    );
   z-index: -1;
   pointer-events: none;
 }
 
 /* Optional grain texture for premium feel */
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
@@ -139,29 +143,35 @@ body::after {
 }
 
 /* Custom cursor styles (hidden on mobile) */
-html, body {
+html,
+body {
   cursor: none;
 }
 
 @media (max-width: 1024px) {
-  html, body {
+  html,
+  body {
     cursor: auto;
   }
 }
 
-a, button {
+a,
+button {
   cursor: none;
 }
 
 @media (max-width: 1024px) {
-  a, button {
+  a,
+  button {
     cursor: pointer;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
