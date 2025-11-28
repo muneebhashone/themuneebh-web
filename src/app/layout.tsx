@@ -1,13 +1,28 @@
-import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
-import ClientNavigation from "./components/ClientNavigation";
+import { Navbar } from "./components/layout/Navbar";
+import { Footer } from "./components/layout/Footer";
+import { CustomCursor } from "./components/layout/CustomCursor";
+import { ScrollProgress } from "./components/layout/ScrollProgress";
+import { siteConfig } from "./data/config";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "Muneeb Hashone - Backend Systems Engineer",
-  description: "Backend Systems Engineer specializing in distributed systems",
+export const metadata: Metadata = {
+  title: `${siteConfig.name} - ${siteConfig.title}`,
+  description: siteConfig.description,
+  openGraph: {
+    title: `${siteConfig.name} - ${siteConfig.title}`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.name} - ${siteConfig.title}`,
+    description: siteConfig.description,
+  },
 };
 
 export default function RootLayout({
@@ -17,9 +32,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ClientNavigation />
+      <body>
+        <ScrollProgress />
+        <CustomCursor />
+        <Navbar />
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>

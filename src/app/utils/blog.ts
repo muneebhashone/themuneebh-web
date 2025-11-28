@@ -74,10 +74,14 @@ function transformDevToArticle(article: DevToArticle): BlogPost {
       month: 'long',
       day: 'numeric'
     }),
+    published_at: article.published_at,
     content: article.body_markdown || '',
     tags: Array.isArray(article.tag_list) ? article.tag_list : [],
+    tag_list: Array.isArray(article.tag_list) ? article.tag_list : [],
     coverImage: article.cover_image,
+    cover_image: article.cover_image,
     readingTime: article.reading_time_minutes,
+    reading_time_minutes: article.reading_time_minutes,
     author: {
       name: article.user.name || 'Anonymous',
       avatar: article.user.profile_image || 'https://api.dicebear.com/7.x/avataaars/svg?seed=default'

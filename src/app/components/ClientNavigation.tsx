@@ -15,6 +15,7 @@ function NavLink({ href, children }: NavLinkProps) {
   return (
     <Link 
       href={href}
+      target="_top"
       prefetch={true}
       className={`inline-block mono text-sm transition-colors px-4 py-2 rounded-md ${
         isActive ? 'text-accent bg-accent/10' : 'text-muted hover:text-accent hover:bg-accent/5'
@@ -31,6 +32,7 @@ export default function ClientNavigation() {
       <div className="container py-4 flex justify-between items-center">
         <Link 
           href="/"
+          target="_top"
           prefetch={true}
           className="mono text-lg font-semibold hover:text-accent transition-colors"
         >

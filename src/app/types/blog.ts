@@ -19,10 +19,14 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string;
+  published_at: string;
   content: string;
   tags: string[];
+  tag_list: string[];
   coverImage?: string;
+  cover_image?: string;
   readingTime: number;
+  reading_time_minutes: number;
   author: {
     name: string;
     avatar: string;
