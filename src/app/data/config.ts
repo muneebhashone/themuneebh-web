@@ -30,9 +30,9 @@ export const siteConfig = {
   ],
 
   metrics: {
-    githubStars: 315,
-    productionSystems: "50+",
-    countriesServed: 6,
+    githubStars: 400,
+    productionSystems: "15+",
+    countriesServed: 3,
     averageUptime: "99.9%",
   },
 

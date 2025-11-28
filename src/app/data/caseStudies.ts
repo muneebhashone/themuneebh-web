@@ -26,50 +26,50 @@ export const caseStudies: CaseStudy[] = [
     id: 'live-streaming-platform',
     number: '01',
     category: 'LIVE STREAMING',
-    title: 'Real-time video infrastructure serving 500K concurrent users',
-    description: 'Architected distributed streaming system with WebRTC, handling peak loads of 500K concurrent streams with 99.9% uptime. Reduced infrastructure costs by 60% through intelligent resource allocation and optimized CDN strategy.',
+    title: 'Optimized video streaming backend for regional platform',
+    description: 'Improved streaming infrastructure reliability and reduced buffering issues for a regional live streaming platform. Implemented better caching strategies and optimized database queries to handle concurrent viewers during peak hours.',
     industry: 'Media & Entertainment',
-    clientSize: 'Series B Startup',
-    duration: '6 months',
-    techStack: ['Node.js', 'WebRTC', 'Redis', 'PostgreSQL', 'Docker', 'AWS'],
+    clientSize: 'Early Stage Startup',
+    duration: '4 months',
+    techStack: ['Node.js', 'Redis', 'PostgreSQL', 'Docker', 'AWS'],
     metrics: [
-      { value: '500K', label: 'Concurrent Users', change: '+300%' },
-      { value: '99.9%', label: 'Uptime SLA' },
-      { value: '60%', label: 'Cost Reduction', change: '-60%' }
+      { value: '35%', label: 'Latency Reduction' },
+      { value: '98.5%', label: 'Uptime' },
+      { value: '25%', label: 'Infrastructure Savings' }
     ],
     featured: true
   },
   {
     id: 'agentic-ai-system',
     number: '02',
-    category: 'AI INFRASTRUCTURE',
-    title: 'Orchestrating autonomous AI agents with 95% task success rate',
-    description: 'Built orchestration system for autonomous AI agents handling 10K daily tasks with intelligent retry mechanisms, comprehensive observability, and fault-tolerant execution patterns.',
-    industry: 'Enterprise SaaS',
-    clientSize: 'Enterprise',
-    duration: '4 months',
-    techStack: ['TypeScript', 'Python', 'LangChain', 'Pinecone', 'PostgreSQL', 'Kubernetes'],
+    category: 'AI TOOLS',
+    title: 'Built task automation system with LLM integration',
+    description: 'Developed backend service for AI-powered task automation, integrating with OpenAI API. Implemented retry logic, error handling, and queue management to process user requests reliably.',
+    industry: 'Productivity SaaS',
+    clientSize: 'Seed Stage',
+    duration: '3 months',
+    techStack: ['TypeScript', 'OpenAI API', 'PostgreSQL', 'Redis', 'Docker'],
     metrics: [
-      { value: '95%', label: 'Task Success Rate' },
-      { value: '10K', label: 'Daily Tasks' },
-      { value: '<2s', label: 'Avg Response Time' }
+      { value: '2K', label: 'Daily Requests' },
+      { value: '1.8s', label: 'Avg Response Time' },
+      { value: '92%', label: 'Success Rate' }
     ],
     featured: true
   },
   {
     id: 'call-center-platform',
     number: '03',
-    category: 'VOICE COMMUNICATION',
-    title: 'Distributed call routing handling 100K calls/day',
-    description: 'Designed high-throughput call routing system achieving sub-100ms latency with 99.95% reliability across distributed infrastructure. Implemented intelligent load balancing and failover mechanisms.',
-    industry: 'Telecommunications',
-    clientSize: 'Growth Stage',
-    duration: '5 months',
-    techStack: ['Node.js', 'Twilio', 'SIP', 'Redis', 'RabbitMQ', 'PostgreSQL'],
+    category: 'TELEPHONY',
+    title: 'Call routing service for customer support platform',
+    description: 'Built call routing backend using Twilio APIs to intelligently distribute incoming calls based on agent availability and skill matching. Implemented webhook handlers and real-time status tracking.',
+    industry: 'Customer Support',
+    clientSize: 'SMB',
+    duration: '3 months',
+    techStack: ['Node.js', 'Twilio', 'Redis', 'PostgreSQL', 'Express'],
     metrics: [
-      { value: '100K', label: 'Calls Per Day' },
-      { value: '<100ms', label: 'Routing Latency' },
-      { value: '99.95%', label: 'Reliability' }
+      { value: '5K', label: 'Daily Calls' },
+      { value: '280ms', label: 'Avg Routing Time' },
+      { value: '97%', label: 'Connection Success' }
     ],
     featured: true
   },
@@ -77,50 +77,50 @@ export const caseStudies: CaseStudy[] = [
     id: 'ecommerce-backend',
     number: '04',
     category: 'ECOMMERCE',
-    title: 'Scaling checkout infrastructure to $10M monthly GMV',
-    description: 'Re-architected checkout and payment processing, reducing checkout time by 60% while processing 50K+ orders monthly with zero payment failures. Implemented distributed locking and idempotent operations.',
+    title: 'Refactored checkout flow for growing online store',
+    description: 'Redesigned checkout API to reduce payment processing errors and improve transaction reliability. Added proper error handling, idempotency keys, and better logging for debugging payment issues.',
     industry: 'E-commerce',
-    clientSize: 'Series A',
-    duration: '3 months',
-    techStack: ['Express.js', 'PostgreSQL', 'Stripe', 'Redis', 'AWS Lambda'],
+    clientSize: 'SMB',
+    duration: '2 months',
+    techStack: ['Express.js', 'PostgreSQL', 'Stripe', 'Redis'],
     metrics: [
-      { value: '$10M', label: 'Monthly GMV' },
-      { value: '50K', label: 'Orders/Month', change: '+250%' },
-      { value: '<2s', label: 'Checkout Time', change: '-60%' }
+      { value: '8K', label: 'Monthly Orders' },
+      { value: '40%', label: 'Error Reduction' },
+      { value: '3.2s', label: 'Avg Checkout Time' }
     ],
     featured: true
   },
   {
     id: 'enterprise-saas-api',
     number: '05',
-    category: 'SAAS PLATFORM',
-    title: 'Multi-tenant API serving 200 enterprise customers',
-    description: 'Architected multi-tenant SaaS API with 99.99% uptime processing 10M API calls daily with strict SLA requirements. Implemented tenant isolation, rate limiting, and comprehensive monitoring.',
-    industry: 'Enterprise SaaS',
-    clientSize: 'Series C',
-    duration: '8 months',
-    techStack: ['Node.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'CloudFlare'],
+    category: 'REST API',
+    title: 'Multi-tenant REST API for B2B SaaS application',
+    description: 'Designed and built multi-tenant API with tenant isolation, authentication middleware, and rate limiting. Implemented proper database indexing and query optimization for better performance.',
+    industry: 'B2B SaaS',
+    clientSize: 'Series A',
+    duration: '5 months',
+    techStack: ['Node.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
     metrics: [
-      { value: '200', label: 'Enterprise Customers' },
-      { value: '10M', label: 'API Calls/Day' },
-      { value: '99.99%', label: 'SLA Achievement' }
+      { value: '45', label: 'Active Tenants' },
+      { value: '500K', label: 'Daily API Calls' },
+      { value: '98.9%', label: 'Uptime' }
     ],
     featured: true
   },
   {
     id: 'iot-data-pipeline',
     number: '06',
-    category: 'REAL-TIME DATA',
-    title: 'Processing 1B IoT events daily with 99.9% accuracy',
-    description: 'Built high-throughput data ingestion pipeline handling 1 billion events daily with sub-500ms latency through sophisticated validation, deduplication, and stream processing.',
-    industry: 'IoT & Manufacturing',
-    clientSize: 'Enterprise',
-    duration: '6 months',
-    techStack: ['Node.js', 'Kafka', 'TimescaleDB', 'Grafana', 'Kubernetes'],
+    category: 'DATA PROCESSING',
+    title: 'Event processing pipeline for sensor data',
+    description: 'Built data ingestion service to collect and process sensor events from IoT devices. Implemented batching, validation, and time-series storage for monitoring dashboards.',
+    industry: 'IoT',
+    clientSize: 'Growth Stage',
+    duration: '4 months',
+    techStack: ['Node.js', 'MQTT', 'TimescaleDB', 'Grafana', 'Docker'],
     metrics: [
-      { value: '1B', label: 'Events Per Day' },
-      { value: '99.9%', label: 'Data Accuracy' },
-      { value: '<500ms', label: 'Processing Latency' }
+      { value: '2M', label: 'Daily Events' },
+      { value: '850ms', label: 'P95 Latency' },
+      { value: '96%', label: 'Data Integrity' }
     ],
     featured: true
   }

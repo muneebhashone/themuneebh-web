@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { Badge } from '../ui/Badge';
-import { SectionHeader } from '../ui/SectionHeader';
-import { StaggerChildren, StaggerItem } from '../animations/StaggerChildren';
-import { caseStudies } from '@/app/data/caseStudies';
-import { ArrowRight } from 'lucide-react';
+import { motion } from "motion/react";
+import Link from "next/link";
+import { Badge } from "../ui/Badge";
+import { SectionHeader } from "../ui/SectionHeader";
+import { StaggerChildren, StaggerItem } from "../animations/StaggerChildren";
+import { caseStudies } from "@/app/data/caseStudies";
+import { ArrowRight } from "lucide-react";
 
 export function CaseStudies() {
   return (
@@ -32,15 +32,15 @@ export function CaseStudies() {
   );
 }
 
-function CaseStudyCard({ study }: { study: typeof caseStudies[0] }) {
+function CaseStudyCard({ study }: { study: (typeof caseStudies)[0] }) {
   return (
     <motion.article
       className="relative p-8 md:p-12 rounded-3xl bg-black-card border border-white/10
                  transition-all duration-300 group"
       whileHover={{
         y: -8,
-        borderColor: 'var(--accent-lime)',
-        boxShadow: '0 20px 60px var(--accent-lime-glow)'
+        borderColor: "var(--accent-lime)",
+        boxShadow: "0 20px 60px var(--accent-lime-glow)",
       }}
     >
       {/* Case Number */}
@@ -57,14 +57,12 @@ function CaseStudyCard({ study }: { study: typeof caseStudies[0] }) {
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight pr-12">
+      <h3 className="text-2xl relative z-10 md:text-3xl font-bold text-white mb-4 leading-tight pr-12">
         {study.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-400 mb-6 leading-relaxed">
-        {study.description}
-      </p>
+      <p className="text-gray-400 mb-6 leading-relaxed">{study.description}</p>
 
       {/* Tech Stack */}
       <div className="flex flex-wrap gap-2 mb-8">
@@ -86,9 +84,7 @@ function CaseStudyCard({ study }: { study: typeof caseStudies[0] }) {
               {metric.label}
             </div>
             {metric.change && (
-              <div className="text-xs text-lime mt-1">
-                {metric.change}
-              </div>
+              <div className="text-xs text-lime mt-1">{metric.change}</div>
             )}
           </div>
         ))}
