@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { Badge } from '../ui/Badge';
-import { SectionHeader } from '../ui/SectionHeader';
-import { StaggerChildren, StaggerItem } from '../animations/StaggerChildren';
-import { Star, GitFork, ExternalLink } from 'lucide-react';
+import { motion } from "motion/react";
+import { Badge } from "../ui/Badge";
+import { SectionHeader } from "../ui/SectionHeader";
+import { StaggerChildren, StaggerItem } from "../animations/StaggerChildren";
+import { Star, GitFork, ExternalLink } from "lucide-react";
 
 interface Repository {
   name: string;
@@ -25,11 +25,11 @@ export function OpenSource({ repositories }: OpenSourceProps) {
     return null;
   }
 
-  const featured = repositories.find(r => r.featured) || repositories[0];
-  const others = repositories.filter(r => r !== featured).slice(0, 3);
+  const featured = repositories.find((r) => r.featured) || repositories[0];
+  const others = repositories.filter((r) => r !== featured).slice(0, 3);
 
   return (
-    <section id="open-source" className="py-24 md:py-32 px-6">
+    <section id="open-source" className="py-16 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="OPEN SOURCE"
@@ -69,7 +69,7 @@ function FeaturedRepoCard({ repo }: { repo: Repository }) {
       href={repo.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block p-8 md:p-10 rounded-3xl bg-black-card border-2 border-lime/20
+      className="block p-8 md:p-10 rounded-3xl bg-black-card border-2 border-lime
                  transition-all duration-300 group hover:border-lime hover:shadow-[0_20px_60px_var(--accent-lime-glow)]"
       whileHover={{ y: -4 }}
     >
@@ -134,7 +134,9 @@ function RepoCard({ repo }: { repo: Repository }) {
           <GitFork className="w-4 h-4" />
           <span className="font-mono">{repo.forks}</span>
         </div>
-        <Badge variant="outline" className="text-xs">{repo.language}</Badge>
+        <Badge variant="outline" className="text-xs">
+          {repo.language}
+        </Badge>
       </div>
     </motion.a>
   );

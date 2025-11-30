@@ -31,7 +31,7 @@ export function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6">
+    <section id="contact" className="py-16 md:py-32 px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="relative p-12 md:p-16 rounded-3xl bg-gradient-to-br from-black via-gray-900 to-black border border-white/5 overflow-hidden"

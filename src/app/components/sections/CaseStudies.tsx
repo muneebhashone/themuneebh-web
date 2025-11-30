@@ -10,7 +10,7 @@ import { ArrowRight } from "lucide-react";
 
 export function CaseStudies() {
   return (
-    <section id="work" className="py-24 md:py-32 px-6">
+    <section id="work" className="py-16 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="SELECTED WORK"

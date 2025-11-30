@@ -22,7 +22,7 @@ export function Writing({ articles }: WritingProps) {
   const others = articles.slice(1, 4);
 
   return (
-    <section id="writing" className="py-24 md:py-32 px-6">
+    <section id="writing" className="py-16 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="THOUGHT LEADERSHIP"
