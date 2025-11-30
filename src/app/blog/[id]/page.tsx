@@ -125,7 +125,7 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
                 a: ({ children, href }) => (
                   <a
                     href={href}
-                    className="text-lime hover:text-lime-dim transition-colors font-medium no-underline border-b border-lime/30 hover:border-lime"
+                    className="text-lime hover:text-lime-dim transition-colors font-medium no-underline border-b border-lime hover:border-lime"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -134,7 +134,7 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
                 ),
                 code: ({ children, className }) =>
                   className ? (
-                    <code className="block bg-lime/5 border border-lime/10 p-4 rounded-xl font-mono text-sm">
+                    <code className="block bg-lime/5 border border-lime p-4 rounded-xl font-mono text-sm">
                       {children}
                     </code>
                   ) : (
