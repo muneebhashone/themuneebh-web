@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useState, useRef, MouseEvent } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { siteConfig } from "@/app/data/config";
@@ -13,7 +13,6 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [pendingAnchor, setPendingAnchor] = useState<string | null>(null);
-  const scrollLockY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,9 +28,7 @@ export function Navbar() {
   }, []);
 
   // Close mobile menu when clicking on a link/button; detect hash anchors
-  const handleNavClick = (
-    hrefOrEvent?: string | MouseEvent<HTMLElement>
-  ) => {
+  const handleNavClick = (hrefOrEvent?: string | MouseEvent<HTMLElement>) => {
     let targetHref: string | null = null;
 
     if (typeof hrefOrEvent === "string") {
@@ -53,34 +50,17 @@ export function Navbar() {
   useEffect(() => {
     if (!isMounted) return;
 
-    const previousBodyOverflow = document.body.style.overflow;
-    const previousHtmlOverflow = document.documentElement.style.overflow;
-
     if (isMobileMenuOpen) {
-      scrollLockY.current = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollLockY.current}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
+      // Simple overflow hidden approach - no position fixed needed
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.overflow = previousBodyOverflow || "unset";
-      document.documentElement.style.overflow = previousHtmlOverflow || "unset";
-      window.scrollTo(0, scrollLockY.current);
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
     return () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.overflow = previousBodyOverflow || "unset";
-      document.documentElement.style.overflow = previousHtmlOverflow || "unset";
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     };
   }, [isMobileMenuOpen, isMounted]);
 
@@ -109,9 +89,7 @@ export function Navbar() {
     <>
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-[120] transition-all duration-300 ${navHeight} ${
-          isScrolled
-            ? "bg-black/90 backdrop-blur-xl border-b border-white/5"
-            : "bg-transparent"
+          isScrolled ? "bg-black/90 backdrop-blur-xl" : "bg-transparent"
         }`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -169,7 +147,7 @@ export function Navbar() {
       {/* Mobile Menu (ported to body to avoid nav stacking issues) */}
       {isMounted &&
         createPortal(
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {isMobileMenuOpen && (
               <>
                 {/* Backdrop */}
@@ -183,12 +161,16 @@ export function Navbar() {
 
                 {/* Menu Panel */}
                 <motion.div
-                  className={`fixed right-0 bottom-0 w-full max-w-sm bg-black-elevated border-l border-white/10 z-[110] md:hidden overflow-y-auto transition-all duration-300 shadow-2xl shadow-black/40`}
+                  className="fixed right-0 bottom-0 w-full max-w-sm bg-black-elevated border-l border-white/10 z-[110] md:hidden overflow-y-auto shadow-2xl shadow-black/40"
                   style={{ top: isScrolled ? "4rem" : "5rem" }}
                   initial={{ x: "100%" }}
-                  animate={{ x: 0 }}
+                  animate={{ x: "0%" }}
                   exit={{ x: "100%" }}
-                  transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                  transition={{
+                    type: "tween",
+                    duration: 0.3,
+                    ease: "easeInOut",
+                  }}
                 >
                   <div className="p-8 space-y-8">
                     {/* Navigation Links */}
